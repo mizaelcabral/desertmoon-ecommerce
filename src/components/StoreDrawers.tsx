@@ -826,20 +826,51 @@ export function StoreDrawers({
 
           {/* BRAND STORY / PHILOSOPHY */}
           {activeDrawer === 'philosophy' && (
-            <div className="space-y-6">
-              <div className="p-6 bg-[#7A548F] rounded-lg">
-                <p className="font-editorial italic text-[26px] leading-[1.22] text-white">
-                  {t.drawers.philosophyQuote}
-                </p>
+            <div className="min-h-full flex flex-col justify-between gap-6">
+              <div className="space-y-5">
+                <div className="w-full aspect-[16/11] rounded-[12px] overflow-hidden bg-[#F5F2F7]">
+                  <img
+                    src="/assets/triptych-serum-hands.png"
+                    alt="Desert Moon CBD hand-blended organic hemp tincture in San Diego"
+                    referrerPolicy="no-referrer"
+                    className="w-full h-full object-cover object-center block"
+                  />
+                </div>
+
+                <div className="p-6 bg-[#7A548F] rounded-[12px]">
+                  <p className="font-editorial italic text-[24px] sm:text-[26px] leading-[1.22] text-white">
+                    {t.drawers.philosophyQuote}
+                  </p>
+                </div>
+
+                <div className="space-y-3.5 text-[14px] leading-[1.7] text-neutral-700">
+                  <p>{t.drawers.philosophyP1}</p>
+                  <p>{t.drawers.philosophyP2}</p>
+                </div>
+
+                <div className="grid grid-cols-3 gap-2.5 pt-1">
+                  <div className="rounded-[10px] bg-[#F5F2F7] px-3 py-3 text-center">
+                    <div className="text-[10.5px] uppercase tracking-[0.04em] font-medium text-[#7A548F]">
+                      San Diego, CA
+                    </div>
+                  </div>
+                  <div className="rounded-[10px] bg-[#F5F2F7] px-3 py-3 text-center">
+                    <div className="text-[10.5px] uppercase tracking-[0.04em] font-medium text-[#7A548F]">
+                      {lang === 'pt' ? 'Sem Solventes' : 'Solventless'}
+                    </div>
+                  </div>
+                  <div className="rounded-[10px] bg-[#F5F2F7] px-3 py-3 text-center">
+                    <div className="text-[10.5px] uppercase tracking-[0.04em] font-medium text-[#7A548F]">
+                      {lang === 'pt' ? 'Carbono Zero' : 'Carbon-Free'}
+                    </div>
+                  </div>
+                </div>
               </div>
-              <div className="space-y-4 text-[14px] leading-[1.7] text-neutral-700">
-                <p>{t.drawers.philosophyP1}</p>
-                <p>{t.drawers.philosophyP2}</p>
-              </div>
+
               <button
                 type="button"
                 onClick={() => onSwitchDrawer('shop')}
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#7A548F] text-white text-[12px] uppercase tracking-[0.04em] hover:bg-[#5C3D6E]"
+                className="w-full h-12 inline-flex items-center justify-center gap-2 px-6 rounded-full bg-[#7A548F] text-white text-[12px] uppercase tracking-[0.04em] hover:bg-[#5C3D6E] transition-colors"
               >
                 <span>{t.drawers.exploreAll}</span>
                 <ArrowUpRight className="w-4 h-4" />
