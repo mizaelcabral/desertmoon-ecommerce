@@ -1,0 +1,6 @@
+{
+  "name": "BitPan — Honest Botanical Skincare",
+  "description": "Unreservedly honest skincare products that truly work, crafted to be kind to skin and the planet.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

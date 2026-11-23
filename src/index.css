@@ -1,0 +1,33 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Playfair Display", Georgia, serif;
+  --font-brand: "Kaushan Script", cursive;
+  --color-desert-plum: #7A548F;
+  --color-desert-plum-dark: #5C3D6E;
+  --color-desert-mist: #F2ECF6;
+  --color-ink: #1E1624;
+}
+
+@layer base {
+  html {
+    font-family: var(--font-sans);
+    color: var(--color-ink);
+    background-color: #ffffff;
+    scroll-behavior: smooth;
+  }
+
+  button:not(:disabled),
+  a[href] {
+    cursor: pointer;
+  }
+}
+
+.font-brand {
+  font-family: var(--font-brand);
+}
+
+.font-editorial {
+  font-family: var(--font-serif);
+}
