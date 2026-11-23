@@ -58,7 +58,7 @@ export function Header({ cartCount, onOpenShop, onOpenDrawer, onResetHome }: Hea
           <img
             src="/assets/desert-logo.png"
             alt="Desert Moon CBD — Your Healing Begins Here"
-            className="h-[40px] sm:h-[46px] w-auto object-contain block"
+            className="h-[48px] sm:h-[58px] w-auto object-contain block"
           />
         </a>
 

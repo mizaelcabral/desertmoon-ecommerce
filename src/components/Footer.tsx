@@ -65,7 +65,7 @@ export function Footer({ onOpenShop, onOpenDrawer }: FooterProps) {
               <img
                 src="/assets/desert-logo.png"
                 alt="Desert Moon CBD — Your Healing Begins Here"
-                className="h-[48px] sm:h-[56px] w-auto object-contain block"
+                className="h-[60px] sm:h-[72px] w-auto object-contain block"
               />
             </a>
             <p className="mt-4 text-[11.5px] uppercase tracking-[0.02em] text-[#5B5566] max-w-[280px] leading-[1.75]">

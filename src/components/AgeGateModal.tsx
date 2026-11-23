@@ -80,7 +80,7 @@ export function AgeGateModal() {
                 <img
                   src="/assets/desert-logo.png"
                   alt="Desert Moon CBD — Your Healing Begins Here"
-                  className="h-[38px] sm:h-[44px] w-auto object-contain block select-none"
+                  className="h-[48px] sm:h-[56px] w-auto object-contain block select-none"
                 />
 
                 <div
