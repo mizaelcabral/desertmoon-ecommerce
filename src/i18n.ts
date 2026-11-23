@@ -37,6 +37,11 @@ export const UI_COPY = {
       terms: 'Terms of Use',
       legalAnd: 'and',
       privacy: 'Privacy Policy',
+      close: 'CLOSE',
+      termsBody:
+        'By entering Desert Moon CBD, you confirm you are at least 21 years of age and agree to use this storefront responsibly for personal hemp-derived CBD purchases in accordance with applicable local regulations.',
+      privacyBody:
+        'We do not store personal age records on external servers. Your confirmation is kept strictly in your current browser session solely to remember that you have verified your age.',
     },
     header: {
       home: 'HOME',
@@ -410,6 +415,11 @@ export const UI_COPY = {
       terms: 'Termos de Uso',
       legalAnd: 'e a',
       privacy: 'Política de Privacidade',
+      close: 'FECHAR',
+      termsBody:
+        'Ao entrar na Desert Moon CBD, você confirma ter pelo menos 21 anos de idade e concorda em utilizar esta loja de forma responsável para compras pessoais de produtos de CBD derivado de cânhamo, conforme as normas locais aplicáveis.',
+      privacyBody:
+        'Não armazenamos registros pessoais de idade em servidores externos. Sua confirmação é mantida estritamente na sessão atual do navegador apenas para lembrar que você já verificou sua idade.',
     },
     header: {
       home: 'INÍCIO',

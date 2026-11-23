@@ -148,12 +148,7 @@ function StorefrontApp() {
           onClearCart={handleClearCart}
         />
 
-        <AgeGateModal
-          onOpenTerms={() => setActiveDrawer('philosophy')}
-          onOpenPrivacy={() => {
-            document.getElementById('newsletter')?.scrollIntoView({ behavior: 'smooth' });
-          }}
-        />
+        <AgeGateModal />
       </div>
     </MotionConfig>
   );

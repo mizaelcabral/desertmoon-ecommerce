@@ -3,20 +3,18 @@ import { AnimatePresence, motion } from 'motion/react';
 import { EDITORIAL_EASE } from './ScrollReveal';
 import { useLanguage } from '../i18n';
 
-interface AgeGateModalProps {
-  onOpenTerms?: () => void;
-  onOpenPrivacy?: () => void;
-}
-
 const STORAGE_KEY = 'dm_age_verified_v1';
 
-export function AgeGateModal({ onOpenTerms, onOpenPrivacy }: AgeGateModalProps) {
+type LegalNoticeTab = 'terms' | 'privacy' | null;
+
+export function AgeGateModal() {
   const { lang, setLang, t } = useLanguage();
   const [isOpen, setIsOpen] = useState<boolean>(() => {
     if (typeof window === 'undefined') return true;
     return window.sessionStorage.getItem(STORAGE_KEY) !== 'true';
   });
   const [denied, setDenied] = useState(false);
+  const [activeNotice, setActiveNotice] = useState<LegalNoticeTab>(null);
 
   useEffect(() => {
     if (!isOpen) return;
@@ -32,11 +30,17 @@ export function AgeGateModal({ onOpenTerms, onOpenPrivacy }: AgeGateModalProps) 
       window.sessionStorage.setItem(STORAGE_KEY, 'true');
     }
     setDenied(false);
+    setActiveNotice(null);
     setIsOpen(false);
   };
 
   const handleDeny = () => {
+    setActiveNotice(null);
     setDenied(true);
+  };
+
+  const toggleNotice = (tab: Exclude<LegalNoticeTab, null>) => {
+    setActiveNotice((prev) => (prev === tab ? null : tab));
   };
 
   return (
@@ -70,7 +74,7 @@ export function AgeGateModal({ onOpenTerms, onOpenPrivacy }: AgeGateModalProps) 
             </div>
 
             {/* Right Column: Editorial Age Verification Content */}
-            <div className="px-7 py-8 sm:px-11 sm:py-11 flex flex-col justify-between bg-white">
+            <div className="px-7 py-8 sm:px-11 sm:py-10 flex flex-col justify-between bg-white">
               {/* Top Row: Brand Wordmark + Compact Language Switcher */}
               <div className="flex items-center justify-between gap-4">
                 <span className="font-brand text-[26px] sm:text-[28px] leading-none tracking-[-0.02em] text-[#7A548F] select-none">
@@ -110,7 +114,7 @@ export function AgeGateModal({ onOpenTerms, onOpenPrivacy }: AgeGateModalProps) 
               </div>
 
               {/* Center Verification Prompt */}
-              <div className="my-9 sm:my-10">
+              <div className="my-7 sm:my-8">
                 <h2
                   id="age-gate-title"
                   className="text-[36px] sm:text-[42px] leading-[1.12] tracking-[-0.025em] font-medium text-[#1E1624]"
@@ -126,7 +130,7 @@ export function AgeGateModal({ onOpenTerms, onOpenPrivacy }: AgeGateModalProps) 
                 </p>
 
                 {denied ? (
-                  <div className="mt-7 p-4 rounded-[12px] bg-[#F2ECF6] border border-[#7A548F]/20">
+                  <div className="mt-6 p-4 rounded-[12px] bg-[#F5F2F7] border border-[#7A548F]/15">
                     <p className="text-[12.5px] font-medium uppercase tracking-[0.025em] text-[#7A548F]">
                       {t.ageGate.deniedTitle}
                     </p>
@@ -142,7 +146,7 @@ export function AgeGateModal({ onOpenTerms, onOpenPrivacy }: AgeGateModalProps) 
                     </button>
                   </div>
                 ) : (
-                  <div className="mt-8 grid grid-cols-2 gap-3.5">
+                  <div className="mt-7 grid grid-cols-2 gap-3.5">
                     <button
                       type="button"
                       onClick={handleConfirm}
@@ -160,6 +164,36 @@ export function AgeGateModal({ onOpenTerms, onOpenPrivacy }: AgeGateModalProps) 
                     </button>
                   </div>
                 )}
+
+                {/* Inline Expandable Terms of Use / Privacy Policy Panel */}
+                <AnimatePresence initial={false}>
+                  {activeNotice && (
+                    <motion.div
+                      key={activeNotice}
+                      initial={{ opacity: 0, y: 8 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -6 }}
+                      transition={{ duration: 0.22, ease: EDITORIAL_EASE }}
+                      className="mt-5 rounded-[12px] bg-[#F5F2F7] px-5 py-4 border border-[#7A548F]/10"
+                    >
+                      <div className="flex items-center justify-between gap-4">
+                        <h3 className="text-[12.5px] font-medium text-[#1E1624]">
+                          {activeNotice === 'terms' ? t.ageGate.terms : t.ageGate.privacy}
+                        </h3>
+                        <button
+                          type="button"
+                          onClick={() => setActiveNotice(null)}
+                          className="text-[11px] uppercase tracking-[0.03em] text-[#7A548F] underline underline-offset-[3px] hover:text-[#5C3D6E] transition-colors"
+                        >
+                          {t.ageGate.close}
+                        </button>
+                      </div>
+                      <p className="mt-2 text-[12px] leading-[1.65] text-[#5B5566]">
+                        {activeNotice === 'terms' ? t.ageGate.termsBody : t.ageGate.privacyBody}
+                      </p>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </div>
 
               {/* Bottom Legal Disclaimer */}
@@ -168,22 +202,26 @@ export function AgeGateModal({ onOpenTerms, onOpenPrivacy }: AgeGateModalProps) 
                   {t.ageGate.legalPrefix}{' '}
                   <button
                     type="button"
-                    onClick={() => {
-                      handleConfirm();
-                      onOpenTerms?.();
-                    }}
-                    className="text-[#1E1624] underline underline-offset-[3px] hover:text-[#7A548F] transition-colors"
+                    onClick={() => toggleNotice('terms')}
+                    aria-expanded={activeNotice === 'terms'}
+                    className={`underline underline-offset-[3px] transition-colors ${
+                      activeNotice === 'terms'
+                        ? 'text-[#7A548F] font-medium'
+                        : 'text-[#1E1624] hover:text-[#7A548F]'
+                    }`}
                   >
                     {t.ageGate.terms}
                   </button>{' '}
                   {t.ageGate.legalAnd}{' '}
                   <button
                     type="button"
-                    onClick={() => {
-                      handleConfirm();
-                      onOpenPrivacy?.();
-                    }}
-                    className="text-[#1E1624] underline underline-offset-[3px] hover:text-[#7A548F] transition-colors"
+                    onClick={() => toggleNotice('privacy')}
+                    aria-expanded={activeNotice === 'privacy'}
+                    className={`underline underline-offset-[3px] transition-colors ${
+                      activeNotice === 'privacy'
+                        ? 'text-[#7A548F] font-medium'
+                        : 'text-[#1E1624] hover:text-[#7A548F]'
+                    }`}
                   >
                     {t.ageGate.privacy}
                   </button>
