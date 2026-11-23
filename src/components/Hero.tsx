@@ -19,8 +19,24 @@ export function Hero({ onExploreProducts }: HeroProps) {
       className="w-full min-h-[calc(100vh-78px)] grid grid-cols-1 lg:grid-cols-[60.12%_39.88%] items-stretch"
     >
       {/* Left Desert Moon plum panel (#7A548F) aligned vertically with header logo */}
-      <div className="bg-[#7A548F] flex flex-col justify-center py-16 sm:py-20 lg:py-16 px-6 sm:px-10 lg:pl-[max(4rem,calc((100vw-1470px)/2))] lg:pr-12 xl:pr-16">
-        <div className="w-full max-w-[669px]">
+      <div className="relative overflow-hidden bg-[#7A548F] flex flex-col justify-center py-16 sm:py-20 lg:py-16 px-6 sm:px-10 lg:pl-[max(4rem,calc((100vw-1470px)/2))] lg:pr-12 xl:pr-16">
+        {/* Expressive sweeping ribbon loop matching the Triptych signature curve */}
+        <svg
+          viewBox="0 0 632 857"
+          fill="none"
+          preserveAspectRatio="none"
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 w-full h-full text-white/20"
+        >
+          <path
+            d="M -6 426 C 52 518, 152 544, 224 468 C 288 396, 330 286, 286 282 C 238 278, 226 408, 266 534 C 314 692, 434 824, 638 698"
+            stroke="currentColor"
+            strokeWidth="4.5"
+            strokeLinecap="round"
+          />
+        </svg>
+
+        <div className="relative z-10 w-full max-w-[669px]">
           {/* 4-point solid botanical star mark */}
           <motion.div
             initial={{ opacity: 0, y: 14, scale: 0.92 }}
