@@ -75,11 +75,13 @@ export function AgeGateModal() {
 
             {/* Right Column: Editorial Age Verification Content */}
             <div className="px-7 py-8 sm:px-11 sm:py-10 flex flex-col justify-between bg-white">
-              {/* Top Row: Brand Wordmark + Compact Language Switcher */}
+              {/* Top Row: Brand Logo + Compact Language Switcher */}
               <div className="flex items-center justify-between gap-4">
-                <span className="font-brand text-[26px] sm:text-[28px] leading-none tracking-[-0.02em] text-[#7A548F] select-none">
-                  {t.brandName}
-                </span>
+                <img
+                  src="/assets/desert-logo.png"
+                  alt="Desert Moon CBD — Your Healing Begins Here"
+                  className="h-[38px] sm:h-[44px] w-auto object-contain block select-none"
+                />
 
                 <div
                   role="group"

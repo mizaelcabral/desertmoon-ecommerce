@@ -60,9 +60,13 @@ export function Footer({ onOpenShop, onOpenDrawer }: FooterProps) {
                 window.scrollTo({ top: 0, behavior: 'smooth' });
               }}
               aria-label="Desert Moon CBD Back to Top"
-              className="inline-block font-brand text-[40px] sm:text-[46px] leading-none tracking-[-0.02em] text-[#7A548F] whitespace-nowrap focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#7A548F]"
+              className="inline-flex items-center focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#7A548F]"
             >
-              {t.brandName}
+              <img
+                src="/assets/desert-logo.png"
+                alt="Desert Moon CBD — Your Healing Begins Here"
+                className="h-[48px] sm:h-[56px] w-auto object-contain block"
+              />
             </a>
             <p className="mt-4 text-[11.5px] uppercase tracking-[0.02em] text-[#5B5566] max-w-[280px] leading-[1.75]">
               963 Urania Ave, Encinitas, CA 92024 · 1-(760) 782-2506

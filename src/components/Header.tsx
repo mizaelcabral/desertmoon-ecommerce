@@ -44,7 +44,7 @@ export function Header({ cartCount, onOpenShop, onOpenDrawer, onResetHome }: Hea
         ref={navRef}
         className="w-full h-full max-w-[1598px] mx-auto px-6 sm:px-10 lg:px-16 grid grid-cols-[1fr_auto] lg:grid-cols-[1fr_auto_1fr] items-center gap-6"
       >
-        {/* Zone 1: Brand wordmark */}
+        {/* Zone 1: Brand logo */}
         <a
           href="#top"
           onClick={(e) => {
@@ -52,10 +52,14 @@ export function Header({ cartCount, onOpenShop, onOpenDrawer, onResetHome }: Hea
             setOpenMenu(null);
             onResetHome();
           }}
-          className="justify-self-start font-brand text-[28px] sm:text-[30px] leading-none tracking-[-0.02em] text-[#7A548F] whitespace-nowrap shrink-0 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#7A548F]"
+          className="justify-self-start inline-flex items-center shrink-0 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#7A548F]"
           aria-label="Desert Moon CBD Home"
         >
-          {t.brandName}
+          <img
+            src="/assets/desert-logo.png"
+            alt="Desert Moon CBD — Your Healing Begins Here"
+            className="h-[40px] sm:h-[46px] w-auto object-contain block"
+          />
         </a>
 
         {/* Zone 2: Centered 5-link navigation */}
