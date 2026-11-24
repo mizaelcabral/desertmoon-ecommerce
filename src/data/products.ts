@@ -259,11 +259,11 @@ export const BITPAN_PRODUCTS: SkincareProduct[] = [
     image: '/assets/product-hyaluronic-serum.png',
     gallery: [
       '/assets/product-hyaluronic-serum.png',
-      '/assets/product-peptide-serum.png',
-      '/assets/pdp-thumb-texture.png',
+      '/assets/Broad-Spectrum-CBD-02.png',
+      '/assets/Broad-Spectrum-CBD-3.png',
       '/assets/product-exfoliating-mask.png',
     ],
-    editorialImage: '/assets/editorial-enzyme-cleanser.png',
+    editorialImage: '/assets/Broad-Spectrum-CBD-Details-&-features.png',
     bgColor: '#F5F2F7',
     tagline: {
       en: 'THC-free broad-spectrum CBD tincture for clear-headed everyday balance and calm.',
