@@ -47,8 +47,38 @@ export function Footer({ onOpenShop, onOpenDrawer }: FooterProps) {
   };
 
   return (
-    <footer className="w-full bg-white pt-20 sm:pt-28 lg:pt-[144px]">
-      <ScrollReveal y={24} amount={0.1} className="w-full max-w-[1598px] mx-auto px-6 sm:px-10 lg:px-16">
+    <footer className="relative overflow-hidden w-full bg-white pt-20 sm:pt-28 lg:pt-[144px]">
+      {/* Left Decorative Purple Ribbon Loop (20% opacity) */}
+      <svg
+        viewBox="0 0 360 320"
+        fill="none"
+        aria-hidden="true"
+        className="pointer-events-none absolute left-0 bottom-0 w-[260px] sm:w-[320px] lg:w-[360px] h-auto text-[#7A548F]/20"
+      >
+        <path
+          d="M -12 162 C 38 228, 126 238, 178 166 C 218 112, 232 42, 198 38 C 162 34, 154 128, 178 214 C 194 268, 224 304, 258 332"
+          stroke="currentColor"
+          strokeWidth="3.2"
+          strokeLinecap="round"
+        />
+      </svg>
+
+      {/* Right Decorative Purple Ribbon Loop (20% opacity) */}
+      <svg
+        viewBox="0 0 420 480"
+        fill="none"
+        aria-hidden="true"
+        className="pointer-events-none absolute right-0 bottom-0 w-[280px] sm:w-[360px] lg:w-[420px] h-auto text-[#7A548F]/20"
+      >
+        <path
+          d="M 432 22 C 304 68, 228 168, 252 276 C 272 362, 344 416, 386 392 C 414 376, 384 342, 326 334 C 228 320, 148 378, 126 492"
+          stroke="currentColor"
+          strokeWidth="3.2"
+          strokeLinecap="round"
+        />
+      </svg>
+
+      <ScrollReveal y={24} amount={0.1} className="relative z-10 w-full max-w-[1598px] mx-auto px-6 sm:px-10 lg:px-16">
         {/* Top Row: Brand Wordmark Left + 4 Even Navigation Columns */}
         <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-[40.3%_repeat(4,1fr)] gap-y-14 gap-x-8 items-start">
           {/* Brand Logo */}
