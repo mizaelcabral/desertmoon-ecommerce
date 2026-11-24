@@ -49,11 +49,11 @@ export const BITPAN_PRODUCTS: SkincareProduct[] = [
     image: '/assets/product-charcoal-mask.png',
     gallery: [
       '/assets/product-charcoal-mask.png',
-      '/assets/pdp-thumb-duo.png',
+      '/assets/cbd-cbn.png',
       '/assets/product-clay-mask.png',
-      '/assets/pdp-thumb-texture.png',
+      '/assets/cbd-cbn-mulher.png',
     ],
-    editorialImage: '/assets/editorial-enzyme-cleanser.png',
+    editorialImage: '/assets/cbd-cbn-mulher-2.png',
     bgColor: '#F5F2F7',
     tagline: {
       en: 'Restorative lavender sleep tonic with CBD, CBN, GABA, and calming ashwagandha.',
@@ -119,11 +119,11 @@ export const BITPAN_PRODUCTS: SkincareProduct[] = [
     image: '/assets/product-clay-mask.png',
     gallery: [
       '/assets/product-clay-mask.png',
-      '/assets/pdp-thumb-duo.png',
-      '/assets/product-charcoal-mask.png',
-      '/assets/pdp-thumb-texture.png',
+      '/assets/CBD-Collagen.png',
+      '/assets/cbd-collagem-homem.png',
+      '/assets/cbd-collagem-cristais.png',
     ],
-    editorialImage: '/assets/editorial-enzyme-cleanser.png',
+    editorialImage: '/assets/cbd-collagem-homem-Details-&-features.png',
     bgColor: '#F5F2F7',
     tagline: {
       en: 'Rose-infused beauty tincture combining pure CBD, collagen, biotin, and MCT oil.',
@@ -189,11 +189,11 @@ export const BITPAN_PRODUCTS: SkincareProduct[] = [
     image: '/assets/product-exfoliating-mask.png',
     gallery: [
       '/assets/product-exfoliating-mask.png',
-      '/assets/pdp-thumb-texture.png',
-      '/assets/pdp-thumb-duo.png',
-      '/assets/product-charcoal-mask.png',
+      '/assets/cbd-tradional-02.png',
+      '/assets/cbd-tradional-03.png',
+      '/assets/cbd-tradional-04.png',
     ],
-    editorialImage: '/assets/editorial-enzyme-cleanser.png',
+    editorialImage: '/assets/cbd-tradional-04-Details-&-features.png',
     bgColor: '#F5F2F7',
     tagline: {
       en: 'Full-spectrum daily tincture enriched with Omega-3, grape seed oil, and vitamins.',
