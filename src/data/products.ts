@@ -329,11 +329,11 @@ export const BITPAN_PRODUCTS: SkincareProduct[] = [
     image: '/assets/product-vitamin-c-serum.png',
     gallery: [
       '/assets/product-vitamin-c-serum.png',
-      '/assets/product-retinol-serum.png',
-      '/assets/pdp-thumb-texture.png',
-      '/assets/editorial-enzyme-cleanser.png',
+      '/assets/complete-wellness-kit-02.png',
+      '/assets/complete-wellness-kit-03.png',
+      '/assets/complete-wellness-kit-04.png',
     ],
-    editorialImage: '/assets/editorial-enzyme-cleanser.png',
+    editorialImage: '/assets/complete-wellness-kit-Details-&-features.png',
     bgColor: '#F5F2F7',
     tagline: {
       en: 'Signature 4-piece bundle with two cooling balms, traditional oil, and sleep tonic.',
@@ -399,11 +399,11 @@ export const BITPAN_PRODUCTS: SkincareProduct[] = [
     image: '/assets/product-retinol-serum.png',
     gallery: [
       '/assets/product-retinol-serum.png',
-      '/assets/product-vitamin-c-serum.png',
-      '/assets/pdp-thumb-texture.png',
-      '/assets/editorial-botanical-serum.png',
+      '/assets/CBD-Balm-02.png',
+      '/assets/CBD-Balm-03.png',
+      '/assets/CBD-Balm-04.png',
     ],
-    editorialImage: '/assets/editorial-enzyme-cleanser.png',
+    editorialImage: '/assets/CBD-Balm-Details-&-features.png',
     bgColor: '#F5F2F7',
     tagline: {
       en: 'High-potency 5000mg cooling mint balm for targeted muscle and joint relief care.',
