@@ -469,11 +469,11 @@ export const BITPAN_PRODUCTS: SkincareProduct[] = [
     image: '/assets/product-peptide-serum-old.png',
     gallery: [
       '/assets/product-peptide-serum-old.png',
-      '/assets/pdp-thumb-texture.png',
-      '/assets/category-beauty-tools.png',
-      '/assets/editorial-botanical-serum.png',
+      '/assets/Gummies-boost-02.png',
+      '/assets/Gummies-boost-03.png',
+      '/assets/Gummies-boost-04.png',
     ],
-    editorialImage: '/assets/editorial-enzyme-cleanser.png',
+    editorialImage: '/assets/Gummies-boost-Details-&-features.png',
     bgColor: '#F3F3F3',
     tagline: {
       en: 'Plant-based strawberry gummies delivering 25mg of broad-spectrum CBD per piece.',
