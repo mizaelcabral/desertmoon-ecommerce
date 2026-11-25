@@ -539,11 +539,11 @@ export const BITPAN_PRODUCTS: SkincareProduct[] = [
     image: '/assets/product-peptide-serum.png',
     gallery: [
       '/assets/product-peptide-serum.png',
-      '/assets/product-hyaluronic-serum.png',
-      '/assets/pdp-thumb-texture.png',
-      '/assets/product-peptide-serum-old.png',
+      '/assets/Gummies-thc-02.png',
+      '/assets/Gummies-thc-03.png',
+      '/assets/Gummies-thc-04.png',
     ],
-    editorialImage: '/assets/editorial-enzyme-cleanser.png',
+    editorialImage: '/assets/Gummies-thc-Details-&-features.png',
     bgColor: '#F5F2F7',
     tagline: {
       en: 'Hemp-derived 25mg THC plant-based gummies crafted for evening relaxation (21+).',
