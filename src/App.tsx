@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useLayoutEffect, useState } from 'react';
 import { MotionConfig } from 'motion/react';
 import { Header, type ActiveDrawer } from './components/Header';
 import { Hero } from './components/Hero';
@@ -24,6 +24,18 @@ function StorefrontApp() {
 
   const cartCount = cart.reduce((sum, item) => sum + item.quantity, 0);
 
+  const scrollToTopInstant = () => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' as ScrollBehavior });
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
+  };
+
+  useLayoutEffect(() => {
+    scrollToTopInstant();
+    const rafId = window.requestAnimationFrame(scrollToTopInstant);
+    return () => window.cancelAnimationFrame(rafId);
+  }, [activeProduct?.id]);
+
   const handleOpenShop = (category: ProductCategory = 'All') => {
     setSelectedCategory(category);
     setActiveDrawer('shop');
@@ -32,13 +44,13 @@ function StorefrontApp() {
   const handleSelectProduct = (product: SkincareProduct) => {
     setActiveProduct(product);
     setActiveDrawer('none');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    scrollToTopInstant();
   };
 
   const handleBackHome = () => {
     setActiveProduct(null);
     setActiveDrawer('none');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    scrollToTopInstant();
   };
 
   const handleAddToCart = (product: SkincareProduct, options?: AddToCartOptions) => {
