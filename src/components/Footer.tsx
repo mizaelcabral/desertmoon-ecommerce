@@ -30,19 +30,13 @@ export function Footer({ onOpenShop, onOpenDrawer }: FooterProps) {
   const { lang, setLang, t } = useLanguage();
 
   const handleLinkClick = (
-    action: 'shop' | 'philosophy' | 'contact' | 'values' | 'newsletter',
+    action: ActiveDrawer,
     category?: ProductCategory
   ) => {
     if (action === 'shop') {
       onOpenShop(category ?? 'All');
-    } else if (action === 'philosophy') {
-      onOpenDrawer('philosophy');
-    } else if (action === 'contact') {
-      onOpenDrawer('contact');
-    } else if (action === 'values') {
-      document.getElementById('values')?.scrollIntoView({ behavior: 'smooth' });
-    } else if (action === 'newsletter') {
-      document.getElementById('newsletter')?.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      onOpenDrawer(action);
     }
   };
 

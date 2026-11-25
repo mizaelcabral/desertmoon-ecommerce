@@ -3,7 +3,23 @@ import { ChevronDown, Menu, Search, ShoppingCart, User, X } from 'lucide-react';
 import type { ProductCategory } from '../data/products';
 import { useLanguage } from '../i18n';
 
-export type ActiveDrawer = 'none' | 'shop' | 'search' | 'cart' | 'account' | 'contact' | 'philosophy';
+export type ActiveDrawer =
+  | 'none'
+  | 'shop'
+  | 'search'
+  | 'cart'
+  | 'account'
+  | 'contact'
+  | 'philosophy'
+  | 'shipping'
+  | 'refund'
+  | 'faqs'
+  | 'lab-reports'
+  | 'mission'
+  | 'san-diego'
+  | 'terms'
+  | 'privacy'
+  | 'fda-notice';
 
 interface HeaderProps {
   cartCount: number;

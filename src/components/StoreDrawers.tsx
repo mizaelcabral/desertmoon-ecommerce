@@ -11,6 +11,7 @@ import {
   X,
 } from 'lucide-react';
 import { BITPAN_PRODUCTS, type ProductCategory, type SkincareProduct } from '../data/products';
+import { FOOTER_DRAWER_CONTENT, type InfoDrawerKey } from '../data/footerPages';
 import type { ActiveDrawer } from './Header';
 import type { AddToCartOptions } from './ProductDetailPage';
 import { CATEGORY_LABELS, pickText, useLanguage } from '../i18n';
@@ -91,6 +92,12 @@ export function StoreDrawers({
   }, [activeDrawer, cart.length, cartStep]);
 
   if (activeDrawer === 'none') return null;
+
+  const isInfoDrawer = (key: ActiveDrawer): key is InfoDrawerKey =>
+    key in FOOTER_DRAWER_CONTENT[lang];
+  const activeInfoDrawer = isInfoDrawer(activeDrawer)
+    ? FOOTER_DRAWER_CONTENT[lang][activeDrawer]
+    : null;
 
   const subtotal = cart.reduce((sum, item) => sum + item.product.price * item.quantity, 0);
   const freeShippingThreshold = 199;
@@ -201,6 +208,7 @@ export function StoreDrawers({
                 {activeDrawer === 'account' && t.drawers.titles.account}
                 {activeDrawer === 'contact' && t.drawers.titles.contact}
                 {activeDrawer === 'philosophy' && t.drawers.titles.philosophy}
+                {activeInfoDrawer && activeInfoDrawer.title}
               </h2>
               <p className="text-[12px] text-neutral-500 mt-0.5">
                 {activeDrawer === 'shop' && `${filteredProducts.length} ${t.drawers.subtitles.shopCount}`}
@@ -214,6 +222,7 @@ export function StoreDrawers({
                 {activeDrawer === 'account' && t.drawers.subtitles.account}
                 {activeDrawer === 'contact' && t.drawers.subtitles.contact}
                 {activeDrawer === 'philosophy' && t.drawers.subtitles.philosophy}
+                {activeInfoDrawer && activeInfoDrawer.subtitle}
               </p>
             </div>
           </div>
@@ -873,6 +882,59 @@ export function StoreDrawers({
                 className="w-full h-12 inline-flex items-center justify-center gap-2 px-6 rounded-full bg-[#7A548F] text-white text-[12px] uppercase tracking-[0.04em] hover:bg-[#5C3D6E] transition-colors"
               >
                 <span>{t.drawers.exploreAll}</span>
+                <ArrowUpRight className="w-4 h-4" />
+              </button>
+            </div>
+          )}
+
+          {/* FOOTER SUPPORT / COMPANY / LEGAL INFO DRAWERS */}
+          {activeInfoDrawer && (
+            <div className="min-h-full flex flex-col justify-between gap-6">
+              <div className="space-y-5">
+                <div className="p-6 bg-[#7A548F] rounded-[12px]">
+                  <p className="font-editorial italic text-[24px] sm:text-[26px] leading-[1.22] text-white">
+                    {activeInfoDrawer.bannerQuote}
+                  </p>
+                </div>
+
+                {activeInfoDrawer.badges && activeInfoDrawer.badges.length > 0 && (
+                  <div className="grid grid-cols-3 gap-2.5">
+                    {activeInfoDrawer.badges.map((badge) => (
+                      <div
+                        key={badge}
+                        className="rounded-[10px] bg-[#F5F2F7] px-3 py-3 text-center"
+                      >
+                        <div className="text-[10.5px] uppercase tracking-[0.04em] font-medium text-[#7A548F]">
+                          {badge}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                )}
+
+                <div className="space-y-4">
+                  {activeInfoDrawer.sections.map((section) => (
+                    <div
+                      key={section.heading}
+                      className="rounded-[12px] border border-[#7A548F]/15 bg-[#FAF8FC] p-5"
+                    >
+                      <h3 className="text-[11.5px] uppercase tracking-[0.03em] font-medium text-[#7A548F]">
+                        {section.heading}
+                      </h3>
+                      <p className="mt-2 text-[13.5px] leading-[1.68] text-neutral-700">
+                        {section.body}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <button
+                type="button"
+                onClick={() => onSwitchDrawer(activeInfoDrawer.ctaTarget)}
+                className="w-full h-12 inline-flex items-center justify-center gap-2 px-6 rounded-full bg-[#7A548F] text-white text-[12px] uppercase tracking-[0.04em] hover:bg-[#5C3D6E] transition-colors"
+              >
+                <span>{activeInfoDrawer.ctaLabel}</span>
                 <ArrowUpRight className="w-4 h-4" />
               </button>
             </div>
